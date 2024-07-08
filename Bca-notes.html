@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veerashaiva College - BCA</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #000000, #434343);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #fff;
+            transition: background 0.5s ease;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 900px;
+            animation: fadeIn 1s ease-in-out;
+            margin: 20px;
+        }
+
+        h1, h2, h3, h4 {
+            color: #fff;
+            margin: 10px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+        }
+
+        h2 {
+            font-size: 2.8em;
+        }
+
+        h3 {
+            font-size: 2.2em;
+        }
+
+        h4 {
+            font-size: 1.8em;
+        }
+
+        input {
+            height: 50px;
+            font-size: 20px;
+            border: 2px solid #3498db;
+            border-radius: 25px;
+            padding: 0 20px;
+            width: 70%;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-in-out;
+            color: #333;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #2980b9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #f39c12;
+        }
+
+        .subjects {
+            margin-top: 40px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subjects h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .subjects ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .subjects li {
+            margin: 10px 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.8em;
+            }
+
+            h4 {
+                font-size: 1.5em;
+            }
+
+            input {
+                width: 90%;
+            }
+        }
+
+        /* Chatbot Styles */
+
+        .chatbot-container {
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            width: 400px;
+            height: 400px;
+            background-color:rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: none;
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideOut {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+
+.chatbot-message {
+    position: fixed;
+    bottom: 70px;
+    margin-bottom: 2ch;
+    margin-right: 3ch;
+    right: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    animation: fadeInOut 4s infinite;
+    z-index: 101;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    25%, 75% {
+        opacity: 1;
+    }
+}
+
+
+        .chatbot-header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .chatbot-header:hover {
+            background-color: #0056b3;
+        }
+
+        .chatbot-body {
+            padding: 10px;
+            max-height: 340px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .message-container {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .message.sent {
+            justify-content: flex-end;
+        }
+
+        .message.received {
+            justify-content: flex-start;
+            color: black;
+        }
+
+        .message-content {
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 70%;
+            margin-bottom: 10px;
+        }
+
+        .message.sent .message-content {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .message.received .message-content {
+            background-color: #e0e0e0;
+            color: #000000;
+        }
+
+        .message-content a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .message-content a:hover {
+            text-decoration: underline;
+        }
+
+        .input-box {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 98%;
+            height: 2ch;
+            padding: 10px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #ccc;
+            gap: 10px;
+        }
+
+        .input-box input[type="text"] 
+        {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            height: 1ch;
+            margin-top: 2ch;
+            border-radius: 4px;
+            text-align: left; 
+        }
+
+        .input-box button {
+            padding: 10px 15px;
+            border: none;
+            margin-right: 1ch;
+            background-color: #007bff;
+            border-radius: 8px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-box button:hover {
+            background-color: #0056b3;
+        }
+
+        .voice-button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            border-radius: 8px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .voice-button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width:768px) {
+            .chatbot-container
+            {
+                color: black;
+                width: 35vh;
+                height: 40%;
+                background:linear-gradient(white,grey);
+                font-size: 1.2rem;
+
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>Veerashiava BCA notes</h2>
+    <div class="container">
+        <h1></h1>
+        <input type="text" id="semester-field" placeholder="Enter semester number (1-6)">
+
+        <div class="subjects" id="subjects-section" style="display: none;">
+            <h3>Subjects for sem-<span id="semester-number"></span></h3>
+            <ul id="subjects-list">
+            </ul>
+        </div>
+    </div>
+
+    <div class="chatbot-header" onclick="toggleChatbot()">💬</div>
+
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-body" id="chatbot-body">
+        </div>
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Type your question...">
+            <button onclick="sendMessage()">Send</button>
+            <button class="voice-button" onclick="toggleVoiceRecognition()">🎤</button>
+        </div>
+    </div>
+
+    <script>
+        const semesterField = document.getElementById("semester-field");
+const subjectsSection = document.getElementById("subjects-section");
+const subjectsList = document.getElementById("subjects-list");
+
+semesterField.addEventListener("input", function() {
+    const value = parseInt(semesterField.value.trim());
+
+    if (value >= 1 && value <= 6) {
+        subjectsList.innerHTML = "";
+
+        const subjects = getSubjects(value);
+        subjects.forEach(subject => {
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+            link.textContent = subject.name;
+            link.href = subject.link;
+            link.target = "_blank";
+            li.appendChild(link);
+            subjectsList.appendChild(li);
+        });
+
+        subjectsSection.style.display = "block";
+        subjectsSection.style.animationPlayState = "running";
+
+        document.getElementById("semester-number").textContent = value;
+    } else {
+        subjectsSection.style.display = "none";
+    }
+});
+
+function getSubjects(semester) 
+{
+    const subjects = [
+        [{ name: "C Programming", link: "https://drive.google.com/file/d/1LsW-WmlKXV_dvDOnm8mwE56S85Hmgj04/view?usp=share_link" }, 
+        { name: "Web Designing", link: "https://drive.google.com/file/d/1e67ohtxIGsx5P3XvYwO6Fv08LGty_R37/view?usp=share_link" }, 
+        {name:"Accounts",link:"https://drive.google.com/file/d/1ZFOVEPb13ddMsjfm_1om-owXuKU_5k0M/view?usp=share_link"},
+        {name:"Digital Fluency", link:"https://drive.google.com/file/d/1U-jGubjFDnF3jUx_YMEuCuoTYtRASoCD/view?usp=share_link"},
+        { name: "Kannada", link: "https://drive.google.com/file/d/1nlqW6mUY1ckr1S169MkEVDNXHHIXM2Bq/view?usp=share_link" }],
+        //sem-2//
+        [{ name: "Java Programming", link: "#" }, 
+        { name: "Data Structures and Algorithms", link: "https://drive.google.com/file/d/1hnhfouB2ygyehhohcI4cDIrrL7yNEP7S/view?usp=share_link" }, 
+        { name: "Kannada", link: "https://drive.google.com/file/d/1bxvXP8JxR067CIyxOk8Ryb-Uum3ByamM/view?usp=share_link" },
+        { name: "Java lab", link: "https://drive.google.com/file/d/12p9kJSfPfmtwMqxnzC5HQ28SvKyX1Pv7/view?usp=share_link" },
+        { name: "DSA lab", link: "https://drive.google.com/file/d/1A7V2Zy7gxJ-CF0gwKlSw5IeljswyB4nd/view?usp=share_link" }],
+        //sem-3//
+        [{ name: "Database Management System", link: "#" }, {
+             name: "C# dotnet Framework", link: "#" }, 
+             { name: "Kannada", link: "#" }],
+             //sem-4//
+        [{ name: "Python", link: "#" }, 
+        { name: "MultiMedia", link: "#" }, 
+        { name: "Operating System", link: "#" }],
+        //sem-5//
+        [{ name: "R-Programming", link: "#" }, 
+        { name: "Cloud-Computing", link: "#" }, 
+        { name: "Cyber-Security", link: "#" },
+        { name: "Design and analysis of alogrithm", link: "#" },
+        { name: "Digital-Marketing", link: "#" }],
+        //sem-6//
+        [{ name: "Aritifical Intelligence", link: "#" }, 
+        { name: "PHP", link: "#" }, 
+        { name: "Data Science", link: "#" },
+        { name: "Web Content Management", link: "#" }]
+    ];
+    return subjects[semester -1];
+}
+    </script>
+    <script>
+        var chatbotVisible = false;
+        var chatbotContainer = document.getElementById('chatbot-container');
+        var recognition;
+        
+        function toggleChatbot() {
+            chatbotVisible = !chatbotVisible;
+            chatbotContainer.style.display = chatbotVisible ? 'block' : 'none';
+            chatbotContainer.style.animation = chatbotVisible ? 'slideIn 0.3s ease forwards' : 'slideOut 0.3s ease forwards';
+            if (!chatbotVisible) {
+                setTimeout(() => { chatbotContainer.style.display = 'none'; }, 300);
+            }
+        }
+        
+        document.addEventListener("DOMContentLoaded", function() {
+    const chatbotMessage = document.getElementById('chatbot-message');
+
+    function showMessage() {
+        chatbotMessage.style.display = 'block';
+        setTimeout(hideMessage, 4000);  
+    }
+
+    function hideMessage() {
+        chatbotMessage.style.display = 'none';
+        setTimeout(showMessage, 4000);  
+    }
+
+    showMessage();  
+});
+
+        function sendMessage() {
+            var userInput = document.getElementById('user-input');
+            var query = userInput.value.trim();
+            if (query) {
+                appendUserInput(query);
+                performGoogleSearch(query);
+                userInput.value = '';
+            }
+        }
+        
+        function performGoogleSearch(query) {
+            const apiKey = 'AIzaSyDNptxSG2DSEL3Ef7Ty7FXO4pDVpx73kPE';
+            const cx = '31e48dba1d7e743a8';
+            const searchUrl = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${apiKey}&cx=${cx}`;
+        
+            fetch(searchUrl)
+                .then(response => response.ok ? response.json() : Promise.reject('Network response was not ok'))
+                .then(data => {
+                    const items = data.items || [];
+                    if (items.length > 0) {
+                        const { title, snippet, link } = items[0];
+                        const responseMessage = `
+                            <div class="message-container">
+                                <div class="message-content">
+                                    <strong style="color:black";>Result:</strong>
+                                    <h4 style="color:black";><a href="${link}" target="_blank">${title}</a></h4>
+                                    <p style="color:black";>${snippet} (Click on the link to know more)</p>
+                                    <p style="color:black";><a href="${link}" target="_blank">${link}</a></p>
+                                </div>
+                            </div>`;
+                        appendMessage(responseMessage);
+                    } else {
+                        appendMessage(noResultsMessage(query));
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                    appendMessage(errorFetchingMessage(query));
+                });
+        }
+        
+        function appendUserInput(message) {
+            const chatbotBody = document.getElementById('chatbot-body');
+            chatbotBody.innerHTML += `
+                <div class="message-container">
+                    <div class="message sent">
+                        <div class="message-content">${message}</div>
+                    </div>
+                </div>`;
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+        
+        function appendMessage(message) {
+            const chatbotBody = document.getElementById('chatbot-body');
+            chatbotBody.innerHTML += message;
+            chatbotBody.scrollTop = chatbotBody.scrollHeight;
+        }
+        
+        function noResultsMessage(query) {
+            return `
+                <div class="message-container">
+                    <div class="message-content"><strong style="color:black";>Input:</strong> ${query}</div>
+                </div>
+                <div class="message-container">
+                    <div class="message received">
+                        <div class="message-content"><strong>Result:</strong> No results found.</div>
+                    </div>
+                </div>`;
+        }
+        
+        function errorFetchingMessage(query) 
+        {
+            return `
+                <div class="message-container">
+                    <div class="message sent">
+                        <div class="message-content"><strong>Input:</strong> ${query}</div>
+                    </div>
+                </div>
+                <div class="message-container">
+                    <div class="message received">
+                        <div class="message-content"><strong style="color:black";>Result:</strong> Failed to fetch search results. Please try again.</div>
+                    </div>
+                </div> `;
+        }
+        
+        function toggleVoiceRecognition() {
+            if (!('webkitSpeechRecognition' in window)) {
+                alert('Your browser does not support speech recognition.');
+                return;
+            }
+        
+            recognition = new webkitSpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+        
+            recognition.onresult = function(event) {
+                var transcript = event.results[0][0].transcript;
+                document.getElementById('user-input').value = transcript;
+                sendMessage();  
+            };
+        
+            recognition.onerror = function(event) {
+                console.error('Error occurred in recognition: ' + event.error);
+            };
+        
+            recognition.start();
+        }
+        </script>
+<div class="chatbot-message" id="chatbot-message" style="margin-right:2ch";>Have a doubt? ask me ↓</div>
+
+</body>
+</html>
