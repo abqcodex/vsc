@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veerashaiva College - BCA Department</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #000000, #434343);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeIn 2s ease;
+        }
+
+        .gallery img {
+            width: calc(25% - 20px);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: zoomIn 1s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 1024px) {
+            .gallery img {
+                width: calc(33.333% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery img {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery img {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Veerashaiva College - BCA Department</h1>
+    </div>
+    <div class="container">
+        <div class="intro">
+            <h2>Welcome to the BCA Department</h2>
+            <p>The BCA (Bachelor of Computer Applications) department at Veerashaiva College offers a comprehensive program that prepares students for a career in the field of computer science and information technology. Our curriculum is designed to provide a strong foundation in both theoretical and practical aspects of computing.</p>
+        </div>
+        <img src="lab-1.jpeg" width="80%" height="80%" style="display: block; margin: 0 auto;">
+
+        <div class="section">
+            <h2>About the Program</h2>
+            <p>The BCA program at Veerashaiva College is a three-year undergraduate course that covers various aspects of computer science, including programming, database management, web development, and networking. The program aims to equip students with the skills and knowledge required to excel in the IT industry.</p>
+            <p>Our faculty consists of experienced professionals and academicians who are dedicated to providing quality education and guidance to our students. We also offer state-of-the-art laboratory facilities and opportunities for hands-on learning through projects and internships.</p>
+        </div>
+
+        <div class="gallery">
+            <img src="https://via.placeholder.com/400" alt="BCA Department Image 1">
+            <img src="https://via.placeholder.com/400" alt="BCA Department Image 2">
+            <img src="https://via.placeholder.com/400" alt="BCA Department Image 3">
+            <img src="https://via.placeholder.com/400" alt="BCA Department Image 4">
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Veerashaiva College. All rights reserved.</p>
+    </div>
+</body>
+</html>

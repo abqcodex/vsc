@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veerashaiva College Admissions</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1c1c1c, #333);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .admission-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .admission-info img {
+            width: 100%;
+            max-width: 600px;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .admission-info img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .info-box {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: justify;
+        }
+
+        .info-box h2 {
+            margin-top: 0;
+            
+        }
+
+        .programs-section {
+            margin-top: 40px;
+        }
+
+        .programs-section h2 {
+            text-align: center;
+            font-size: 2em;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .programs-section .program {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            align-content: center;
+        }
+
+        .programs-section .program:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .programs-section .program h3 {
+            text-align: justify;
+            text-align: center;
+            margin: 0 0 10px;
+        }
+
+        .programs-section .program p {
+            margin: 5px 0;
+            text-align: justify;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <h1>Veerashaiva College Admissions 2024-25</h1>
+        </div>
+
+        <div class="admission-info fade-in">
+            <img src="admi1.jpeg" alt="Admission Info 1">
+            <img src="admission.jpeg" alt="Admission Info 2">
+        </div>
+
+        <div class="info-box fade-in">
+            <h2>Admissions Open</h2>
+            <p>Veerashaiva College is now accepting applications for the 2024-25 academic year. Our programs include a variety of undergraduate and postgraduate courses designed to provide students with comprehensive education and career opportunities.</p>
+            <p>Join us to achieve academic excellence and be a part of a vibrant community. Hurry up and apply now!</p>
+        </div>
+
+        <div class="programs-section fade-in">
+            <h2>Undergraduate Programs</h2>
+            <div class="program">
+                <h3>B.A.</h3>
+                <p>Specializations: EHS, HEP, HPS, KHS, EHE</p>
+                <p>Eligibility: PUC & ITI Pass in any stream</p>
+            </div>
+            <div class="program">
+                <h3>B.Com.</h3>
+                <p>Specializations: General, Computers, TPP</p>
+                <p>Eligibility: PUC & ITI Pass in any stream</p>
+            </div>
+            <div class="program">
+                <h3>B.B.A.</h3>
+                <p>Specialization: Business Administration</p>
+                <p>Eligibility: PUC Pass in any stream</p>
+            </div>
+            <div class="program">
+                <h3>B.Sc.</h3>
+                <p>Specializations: PCM, CBZ, PMS, PMCs, SMCs, CBBt, CZBt</p>
+                <p>Eligibility: PUC Pass in Science</p>
+            </div>
+            <div class="program">
+                <h3>B.C.A.</h3>
+                <p>Specialization: Computer Applications</p>
+                <p>Eligibility: PUC Pass in Science with Mathematics / PUC Commerce with Business Mathematics / Computer & IT Pass</p>
+            </div>
+        </div>
+
+        <div class="programs-section fade-in">
+            <h2>Postgraduate Programs</h2>
+            <div class="program">
+                <h3>M.Com.</h3>
+                <p>Duration: 4 Semesters</p>
+                <p>Eligibility: A degree in the respective option from any recognized university</p>
+            </div>
+            <div class="program">
+                <h3>M.Sc., Chemistry (General)</h3>
+                <p>Duration: 4 Semesters</p>
+                <p>Eligibility: A degree in the respective option from any recognized university</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

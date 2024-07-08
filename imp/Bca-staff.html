@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BCA Department Staff</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #2C3E50;
+      color: #ECF0F1;
+      overflow-x: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .header {
+      padding: 50px 0;
+      border-bottom: 2px solid #34495E;
+    }
+    .header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .header p {
+      font-size: 1.2em;
+      margin: 10px 0 0;
+    }
+    .staff-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .staff-member, .hod-member {
+      background: #34495E;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      width: calc(25% - 40px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .staff-member:hover, .hod-member:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+    }
+    .staff-member img, .hod-member img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+    .staff-member h3, .hod-member h3 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    .staff-member p, .hod-member p {
+      font-size: 1em;
+      margin: 5px 0 0;
+    }
+    .hod-member {
+      background: linear-gradient(120deg, #e74c3c, #c0392b);
+      color: #fff;
+      width: calc(50% - 40px);
+    }
+    .staff-member img {
+      border-radius: 4ch;
+      width: 60%;
+      height: 70%;
+    }
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2em;
+      }
+      .header p {
+        font-size: 0.9em;
+      }
+      .staff-member, .hod-member {
+        width: calc(100% - 20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>BCA Department Staff</h1>
+      <p>Meet Our Esteemed Faculty Members</p>
+    </div>
+
+    <div class="staff-section">
+      <div class="hod-member" data-index="1">
+        <img src="hod-2.jpg" alt="HOD 2">
+        <h3>Shoba Y</h3>
+        <p>Head of Department</p>
+        <p>MCA</p>
+      </div>
+    </div>
+
+    <div class="staff-section">
+      <div class="staff-member" data-index="2">
+        <img src="staff-1.jpg" alt="Staff Member 1">
+        <h3>Rekha</h3>
+        <p>Assistant Professor</p>
+        <p>MCA</p>
+      </div>
+      <div class="staff-member" data-index="3">
+        <img src="staff-2.jpg" alt="Staff Member 2">
+        <h3>Nikhil</h3>
+        <p>Assistant Lecturer</p>
+        <p>MCA</p>
+      </div>
+      <div class="staff-member" data-index="4">
+        <img src="kavya-mam.jpg" alt="Staff Member 3">
+        <h3>Kavya</h3>
+        <p>Associate Professor</p>
+        <p>M.Sc BEd </p>
+      </div>
+      <div class="staff-member" data-index="5">
+        <img src="staff-4.jpg" alt="Staff Member 4">
+        <h3>Rangamma</h3>
+        <p>Assistant Lecturer</p>
+        <p>MCA</p>
+      </div>
+      <div class="staff-member" data-index="6">
+        <img src="staff-5.jpg" alt="Staff Member 5">
+        <h3>Sangeetha</h3>
+        <p>Assistant Lecturer</p>
+        <p>MCA</p>
+      </div>
+      <div class="staff-member" data-index="7">
+        <img src="img/Deepa-mam.jpg" alt="Staff Member 6">
+        <h3>Deepa</h3>
+        <p>Assistant Lecturer</p>
+        <p>MCA</p>
+      </div>
+      <div class="staff-member" data-index="8">
+        <img src="staff-7.jpg" alt="Staff Member 7">
+        <h3></h3>
+        <p>Lecturer</p>
+        <p>MCA</p>
+      </div>
+      <div class="staff-member" data-index="9">
+        <img src="staff-8.jpg" alt="Staff Member 8">
+        <h3></h3>
+        <p>Assistant Professor</p>
+        <p>M.SC</p>
+      </div>
+      <div class="staff-member" data-index="10">
+        <img src="staff-9.jpg" alt="Staff Member 9">
+        <h3></h3>
+        <p>Assistant Lecturer</p>
+        <p>M.Sc</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const staffMembers = document.querySelectorAll('.staff-member, .hod-member');
+      staffMembers.forEach((member, index) => {
+        setTimeout(() => {
+          member.style.opacity = 1;
+        }, index * 200); 
+      });
+    });
+  </script>
+</body>
+</html>
