@@ -203,7 +203,7 @@ header nav ul li a:hover {
 .info-box {
   background-color: #333;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
@@ -249,13 +249,13 @@ header nav ul li a:hover {
     }
 
     .alumni-info p {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       color: #fff;
     }
 
     .alumni-info img {
-      width: 100px;
-      height: 100px;
+      width: 20vh;
+      height: 25vh;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -471,13 +471,11 @@ footer p {
             <a href="#">Staff</a>
             <div class="dropdown-content">
               <a href="Bca-staff.html">BCA</a>
-              <a href="#">BSc(YTU)</a>
             </div>
           <li class="dropdown">
             <a href="#">Departments</a>
             <div class="dropdown-content">
               <a href="bca-dep.html">BCA</a>
-              <a href="#">BSc(YTU)</a>
               <a href="sports.html">Sports</a>
             </div>
           </li>
@@ -485,13 +483,11 @@ footer p {
             <a href="#">Notes</a>
             <div class="dropdown-content">
               <a href="Bca-notes.html">BCA</a>
-              <a href="#">BSC</a>
             </div>
           <li class="dropdown">
             <a href="#">Labs</a>
             <div class="dropdown-content">
               <a href="lab.html">BCA</a>
-              <a href="#">BSC</a>
             </div>
             <li class="dropdown">
               <a href="admissions.html">Admissions</a>
@@ -506,10 +502,14 @@ footer p {
       <h2>Welcome to Veerashaiva College</h2>
       <p class="hero-text">A Place of Learning and Growth</p>
     </div>
-
     <div class="container">
     <div class="main-content">
       <div class="info-boxes">
+        <a href="#">
+          <div class="info-box">
+            <h3>Events</h3>
+            <p>Info about  college Library</p>
+          </div></a>
         <a href="library.html">
         <div class="info-box">
           <h3>Library</h3>
@@ -526,7 +526,6 @@ footer p {
           <p>Get in touch with us for any inquiries or support.</p>
         </div></a>
       </div>
-
       <div class="alumni-info-container">
         <div class="alumni-info">
           <h2>Sudha Murthy</h2>
@@ -543,6 +542,21 @@ footer p {
           <img src="Shantappa-Kurubara-2.webp" alt="Alumni 1">
           <p><br><br>Karnataka's Shantappa Kurubara, a police sub-inspector, defied limitations. In his 8th attempt, he aced the UPSC CSE, securing AIR 644.  This BSc graduate, who even failed 12th grade twice, proves that unwavering dedication trumps setbacks, inspiring aspirants across India.
           </p>
+        </div>
+        <div class="alumni-info">
+          <h2>Alumni</h2>
+          <img src="#" alt="Alumni 1">
+          <p></p>
+        </div>
+        <div class="alumni-info">
+          <h2>Alumni</h2>
+          <img src="#" alt="Alumni 1">
+          <p></p>
+        </div>
+         <div class="alumni-info">
+          <h2>Alumni</h2>
+          <img src="#" alt="Alumni 1">
+          <p></p>
         </div>
       </div>
     </div>
@@ -656,7 +670,7 @@ container.addEventListener('wheel', (e) => {
     });
     document.addEventListener("DOMContentLoaded", function() {
       function checkAndRedirect() {
-        if (window.innerWidth <= 900) {
+        if (window.innerWidth < 1200) {
           sessionStorage.removeItem('isMobileRedirect');
           window.location.href = "index.html";
         }
