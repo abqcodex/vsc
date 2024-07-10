@@ -81,7 +81,7 @@
   bottom: -5px;
   z-index: 1;
   border-radius: 2px;
-  background: linear-gradient(135deg, white,red);
+  background: linear-gradient(135deg, white,white);
   pointer-events: none;
   background-size: 300% 300%;
   animation: gradientBorder 4s linear infinite;
@@ -115,7 +115,7 @@
     }
 
     .alumni-box {
-      margin-left: 4ch;
+      margin-left: 7ch;
       width: 70%;
       height: 150px;
       border-radius: 1ch;
@@ -384,7 +384,7 @@ a
   color: white;
   text-decoration: none;
 }
-.menu-dropdown .submenu {
+/*.menu-dropdown .submenu {
   display: none;
   position: absolute;
   top: 0;
@@ -419,7 +419,7 @@ a
   background-color: #f0f0f0;
 }
 
-
+*/
 
 @media (max-width: 810px) {
   .alumni-boxes {
@@ -559,18 +559,12 @@ a
   <ul class="menu">
     <li>
       <a href="Bca-staff.html">Staff</a>
-      <ul class="submenu">
+      <!--<ul class="submenu">
         <li><a href="Bca-staff.html#faculty">Faculty</a></li>
         <li><a href="Bca-staff.html#administration">Administration</a></li>
-      </ul>
+      </ul>-->
     </li>
-    <li>
-      <a href="Bca-notes.html">Notes</a>
-      <ul class="submenu">
-        <li><a href="Bca-notes.html">BCA</a></li>
-        <li><a href="Bsc-notes.html">Bsc</a></li>
-      </ul>
-    </li>
+    <li><a href="Bca-notes.html">Notes</a></li>
     <li><a href="bca-dep.html">Department</a></li>
     <li><a href="lab.html">Labs</a></li>
     <li><a href="admissions.html">Admissions</a></li>
@@ -614,12 +608,12 @@ a
       <div class="info-box half-width">
         <img src="principal.jpg" alt="Principal Image" class="principal-chairman-img">
         <h4>Principal</h4>
-        <p>Dr G Manohar</p>
+        <p>Description of the Principal</p>
       </div>
       <div class="info-box half-width">
         <img src="chairman.png" alt="Chairman Image" class="principal-chairman-img">
         <h4>Chairman</h4>
-        <p>Darur Shanthana Goudru</p>
+        <p>Description of the Chairman</p>
       </div>
     </div>
     
@@ -682,7 +676,7 @@ a
     });
     document.addEventListener("DOMContentLoaded", function() {
       function checkAndRedirect() {
-        if (window.innerWidth > 900) 
+        if (window.innerWidth > 1200) 
         {
           sessionStorage.removeItem('isMobileRedirect');
           window.location.href = "index_1.html";
